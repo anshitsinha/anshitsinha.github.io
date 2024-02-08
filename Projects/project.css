@@ -520,7 +520,7 @@ section {
 .preview-img {
     width: 100%;
     height: 100%;
-    background: url(../assets/Projects/projects.png);
+    background: url(../Assets/Projects/projects.webp);
     background-size: cover;
     background-position: 0 0;
     pointer-events: none;
