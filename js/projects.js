@@ -146,19 +146,19 @@ const blogPosts = [
     {
         title: 'The digital renaissance',
         time: '10 Min',
-        image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/c8e66786746849.5da35882a4d79.jpg',
+        image: './Assets/Blogs/blog1.webp',
         link: './Blogs/the-digital-renaissance-how-to-unlock-your-potential-in-the-age-of-information.html'
     },
     {
         title: 'Harnessing ancient wisdom',
         time: '7 Min',
-        image: 'https://www.shutterstock.com/image-illustration/ancient-wisdom-landscape-ethereal-backdrop-600nw-2215196649.jpg',
+        image: './Assets/Blogs/blog2.webp',
         link: './Blogs/harnessing-ancient-wisdom-for-effortless-success-in-modern-life.html'
     },
     {
         title: 'The power of non-binary thinking',
         time: '12 Min',
-        image: 'https://zett.zhdk.ch/content/uploads/2022/08/Was-ist....Lichtprojektion-mit-Profilscheinwerfern-plus-Kürbiskernöl_web_ABC2300.jpg',
+        image: './Assets/Blogs/blog3.webp',
         link: './Blogs/the-power-of-non-binary-thinking-unleashing-your-fullest-potential.html'
     }
 ];
