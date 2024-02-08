@@ -30,7 +30,7 @@ const projects = [
         name: 'Preloader',
         type: 'Animation',
         pos: 'end',
-        image: './Assets/Projects/Preloader.png' 
+        image: './Assets/Projects/CarbonFootprintCalculator.png' 
     },
     {
         name: 'Stock Price Prediction',
