@@ -4,43 +4,48 @@ const projects = [
     // Project details: name, type, position, and image link
     {
         name: 'Manga2Ascii',
-        type: 'Fun',
+        type: 'Converter',
         pos: 'start',
-        image: './Assets/Projects/Manga2Ascii.webp' 
+        image: './Assets/Projects/Manga2Ascii.webp',
+        link: 'https://anshitsinha.github.io/manga2ascii/'
     },
     {
         name: 'Landing Page',
-        type: 'Web Design',
+        type: 'Design',
         pos: 'mid',
-        image: './Assets/Projects/LandingPage.webp' 
+        image: './Assets/Projects/LandingPage.webp',
+        link: 'https://anshitsinha.github.io/arch/'
     },
     {
         name: 'Portfolio',
         type: 'Website',
         pos: 'end',
-        image: './Assets/Projects/Portfolio.gif'
+        image: './Assets/Projects/Portfolio.gif',
+        link: 'https://anshitsinha.github.io/talismann/'
     },
     {
-        name: 'Age Countdown',
+        name: 'Life Meter',
         type: 'Application',
         pos: 'mid',
-        image: './Assets/Projects/AgeCountdown.webp' 
+        image: './Assets/Projects/AgeCountdown.webp',
+        link: 'https://anshitsinha.github.io/life-meter/'
     },
     {
-        name: 'Preloader',
-        type: 'Animation',
+        name: 'Ecotally',
+        type: 'Application',
         pos: 'end',
-        image: './Assets/Projects/CarbonFootprintCalculator.webp' 
+        image: './Assets/Projects/CarbonFootprintCalculator.webp',
+        link: 'https://anshitsinha.github.io/ecotally/'
     },
     {
         name: 'Stock Price Prediction',
-        type: 'Machine Learning',
+        type: 'ML/AI',
         pos: 'mid',
         image: './Assets/Projects/StockPricePrediction.webp' 
     },
     {
         name: 'Truth & Dare',
-        type: 'Application',
+        type: 'Game',
         pos: 'start',
         image: './Assets/Projects/TruthAndDare.webp',
         link: 'https://anshitsinha.github.io/truth-or-dare/'
@@ -48,7 +53,7 @@ const projects = [
 
     {
         name: 'Product Page',
-        type: 'Web Design',
+        type: 'Design',
         pos: 'end',
         image: './Assets/Projects/ProductPage.webp',
         link: 'https://anshitsinha.github.io/ecstacy/'
