@@ -6,43 +6,43 @@ const projects = [
         name: 'Manga2Ascii',
         type: 'Fun',
         pos: 'start',
-        image: './assets/Projects/Manga2Ascii.png' 
+        image: './Assets/Projects/Manga2Ascii.png' 
     },
     {
         name: 'Landing Page',
         type: 'Web Design',
         pos: 'mid',
-        image: './assets/Projects/LandingPage.png' 
+        image: './Assets/Projects/LandingPage.png' 
     },
     {
         name: 'Portfolio',
         type: 'Website',
         pos: 'end',
-        image: './assets/Projects/Portfolio.gif'
+        image: './Assets/Projects/Portfolio.gif'
     },
     {
         name: 'Age Countdown',
         type: 'Application',
         pos: 'mid',
-        image: './assets/Projects/AgeCountdown.png' 
+        image: './Assets/Projects/AgeCountdown.png' 
     },
     {
         name: 'Preloader',
         type: 'Animation',
         pos: 'end',
-        image: './assets/Projects/Preloader.png' 
+        image: './Assets/Projects/Preloader.png' 
     },
     {
         name: 'Stock Price Prediction',
         type: 'Machine Learning',
         pos: 'mid',
-        image: './assets/Projects/StockPricePrediction.png' 
+        image: './Assets/Projects/StockPricePrediction.png' 
     },
     {
         name: 'Truth & Dare',
         type: 'Application',
         pos: 'start',
-        image: './assets/Projects/TruthAndDare.png',
+        image: './Assets/Projects/TruthAndDare.png',
         link: 'https://anshitsinha.github.io/truth-or-dare/'
     },
 
@@ -50,7 +50,7 @@ const projects = [
         name: 'Product Page',
         type: 'Web Design',
         pos: 'end',
-        image: './assets/Projects/ProductPage.png',
+        image: './Assets/Projects/ProductPage.png',
         link: 'https://anshitsinha.github.io/ecstacy/'
     },
 ];
