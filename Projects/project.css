@@ -446,7 +446,7 @@ section {
     border-radius: 6px;
     overflow: hidden;
     user-select: none;
-    cursor: pointer;
+    cursor: none !important;
     z-index: 20;
     left: 50%;
     top: 0; /* Set top to 0 for vertical centering at the top of the screen */
@@ -517,8 +517,9 @@ section {
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.125);
-    cursor: none;
+    cursor: pointer;
 }
+
 
 .preview-img {
     width: 100%;
@@ -567,7 +568,7 @@ p {
 
 @media (max-width: 900px) {
     .location,
-    .service {
+    .year {
         display: none;
     }
 }
@@ -701,4 +702,8 @@ i {
 
 .line-container {
     display: none;
+}
+
+button {
+    cursor: none;
 }

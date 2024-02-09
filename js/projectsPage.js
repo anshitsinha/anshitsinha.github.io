@@ -41,7 +41,8 @@ const projects = [
         name: 'Stock Price Prediction',
         type: 'ML/AI',
         pos: 'mid',
-        image: '../Assets/Projects/StockPricePrediction.webp' 
+        image: '../Assets/Projects/StockPricePrediction.webp',
+        link: 'https://github.com/anshitsinha/stock-market-prediction/blob/main/prediction.ipynb'
     },
     {
         name: 'Truth & Dare',
