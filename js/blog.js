@@ -1,16 +1,6 @@
-
-
-
-
-
-
-
-
-
-
-
-// Header animation        
-
+/**
+ * HEADER
+ */
 
 document.addEventListener("DOMContentLoaded", function(){
     let tl = gsap.timeline({paused: true});
@@ -65,30 +55,40 @@ document.addEventListener("DOMContentLoaded", function(){
        
         tl.reverse ();
         document.querySelector(".menu-overlay").style.visibility = "hidden";
-        
-        
-        
-        
     }
-    
-
-
-
-    
-
-
     
     document.querySelector(".menu-open-btn").addEventListener("click", openMenu);
     document.querySelector(".menu-close-btn").addEventListener("click", closeMenu);
     document.querySelectorAll(".menu-link").forEach(function(link) {
         link.addEventListener("click", closeMenu);
     });
-    
 });
 
+function updateLiveTime() {
+    const now = new Date();
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    };
+    const formattedTime = now.toLocaleString('en-US', options);
+    document.getElementById('liveTime').textContent = formattedTime;
+  }
 
-//cursor
+  // Update time every second
+  setInterval(updateLiveTime, 1000);
 
+  // Initial call to display time
+  updateLiveTime();
+
+
+
+/**
+ * CURSOR
+ */
 
 const cursorDot = document.querySelector("[data-cursor-dot]");
 const cursorOutline = document.querySelector("[data-cursor-outline]");
@@ -100,9 +100,6 @@ window.addEventListener("mousemove", function(e){
 
     cursorDot.style.left =`${posX}px`;
     cursorDot.style.top =`${posY}px`;
-
-    // cursorOutline.style.left =`${posX}px`;
-    // cursorOutline.style.top =`${posY}px`;
 
     cursorOutline.animate({
         left: `${posX}px`,
@@ -131,23 +128,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
   });
-  
-  function updateLiveTime() {
-    const now = new Date();
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    };
-    const formattedTime = now.toLocaleString('en-US', options);
-    document.getElementById('liveTime').textContent = formattedTime;
-  }
-
-  // Update time every second
-  setInterval(updateLiveTime, 1000);
-
-  // Initial call to display time
-  updateLiveTime();

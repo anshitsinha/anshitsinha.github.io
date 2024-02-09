@@ -1,8 +1,6 @@
-
-
-
-
-
+/**
+ * IMPORTS
+ */
 
 import { lerp } from "./utils.js";
 import { createProjects, createBlogposts } from "./projects.js";
@@ -15,18 +13,22 @@ createProjects();
 createBlogposts();
 
 main.addEventListener('scroll', () => {
-    animateVideo()
-})
+    animateVideo();
+});
 
-// Video
+
+
+/**
+ * SHOWCASE VIDEO
+ */
 
 const headerLeft = document.querySelector('.text-header-left');
 const headerRight = document.querySelector('.text-header-right');
 
-function animateVideo(){
-    let {bottom} = videoSection.getBoundingClientRect();
-    let scale = 1 - ((bottom - window.innerHeight) * .0005);
-    scale = scale < .2 ? .2 : scale > 1 ? 1 : scale;
+function animateVideo() {
+    let { bottom } = videoSection.getBoundingClientRect();
+    let scale = 1 - ((bottom - window.innerHeight) * 0.0005);
+    scale = scale < 0.2 ? 0.2 : scale > 1 ? 1 : scale;
     video.style.transform = `scale(${scale})`;
 
     // Text transformation
@@ -34,9 +36,13 @@ function animateVideo(){
     textTrans = textTrans < 0 ? 0 : textTrans;
     headerLeft.style.transform = `translateX(${-textTrans}px)`;
     headerRight.style.transform = `translateX(${textTrans}px)`;
-} 
+}
 
-// Projects
+
+
+/**
+ * PROJECTS
+ */
 
 const projectsSticky = document.querySelector('.projects-sticky');
 const projectSlider = document.querySelector('.projects-slider');
@@ -44,134 +50,150 @@ const projectSlider = document.querySelector('.projects-slider');
 let projectTargetX = 0;
 let projectCurrentX = 0;
 
-let percentages = {
+const percentages = {
     small: 700,
     medium: 300,
     large: 100
-}
+};
 
 let limit = window.innerWidth <= 600 ? percentages.small :
             window.innerWidth <= 1100 ? percentages.medium :
-            percentages.large
+            percentages.large;
 
-function setLimit(){
+function setLimit() {
     limit = window.innerWidth <= 600 ? percentages.small :
             window.innerWidth <= 1100 ? percentages.medium :
-            percentages.large
+            percentages.large;
 }
 
 window.addEventListener('resize', setLimit);
 
-function animateProjects(){
+function animateProjects() {
     let offsetTop = projectsSticky.parentElement.offsetTop;
     let percentage = ((main.scrollTop - offsetTop) / window.innerHeight) * 100;
     percentage = percentage < 0 ? 0 : percentage > limit ? limit : percentage;
     projectTargetX = percentage;
-    projectCurrentX = lerp(projectCurrentX, projectTargetX, .1);
-    projectSlider.style.transform = `translate3d(${-(projectCurrentX)}vw, 0 , 0)`;
+    projectCurrentX = lerp(projectCurrentX, projectTargetX, 0.1);
+    projectSlider.style.transform = `translate3d(${-projectCurrentX}vw, 0 , 0)`;
 }
 
-// Post animation
+
+
+/**
+ * BLOGS
+ */
+
 const blogSection = document.getElementById('blog');
 const blogPosts = [...document.querySelectorAll('.post')];
 
-function scrollBlogPosts(){
+function scrollBlogPosts() {
     let blogSectionTop = blogSection.getBoundingClientRect().top;
-    for(let i = 0; i < blogPosts.length; i++){
-        if(blogPosts[i].parentElement.getBoundingClientRect().top <= 1){
+    for (let i = 0; i < blogPosts.length; i++) {
+        if (blogPosts[i].parentElement.getBoundingClientRect().top <= 1) {
             // +1 to account for the first BLOG title div
-        
-            let offset = (blogSectionTop + (window.innerHeight * (i + 1))) * .0005;
+            let offset = (blogSectionTop + (window.innerHeight * (i + 1))) * 0.0005;
             offset = offset < -1 ? -1 : offset >= 0 ? 0 : offset;
-            if( i == 1) console.log(offset)
-            blogPosts[i].style.transform = `scale(${1 + offset})`
+            if (i == 1) console.log(offset);
+            blogPosts[i].style.transform = `scale(${1 + offset})`;
         }
     }
 }
 
-// Circle animation
+
+
+/**
+ * DOT ANIMATION
+ */
+
 const circleSection = document.getElementById('circle-section');
 const circle = document.querySelector('.circle');
 
-function scrollCircle(){
-    let {top} = circleSection.getBoundingClientRect();
+function scrollCircle() {
+    let { top } = circleSection.getBoundingClientRect();
     let scaleTop = Math.abs(top);
-    let scale = (scaleTop / window.innerHeight)
+    let scale = (scaleTop / window.innerHeight);
     scale = scale < 0 ? 0 : scale > 1 ? 1 : scale;
-    if(top <= 0){
+    if (top <= 0) {
         circle.style.transform = `translate(-50%, -50%) scale(${scale})`;
-    }else{
+    } else {
         circle.style.transform = `translate(-50%, -50%) scale(${0})`;
     }
 }
 
-// Dicover text animation
-const dContainer = document.querySelector('.discover-container')
+
+
+/**
+ * CALL FOR WORK
+ */
+
+const dContainer = document.querySelector('.discover-container');
 const leftText = document.querySelector('.text-left');
 const rightText = document.querySelector('.text-right');
 
-function scrollDiscover(){
-    let {bottom} = dContainer.getBoundingClientRect();
+function scrollDiscover() {
+    let { bottom } = dContainer.getBoundingClientRect();
     let textTrans = bottom - window.innerHeight;
-    textTrans = textTrans < 0 ? 0 : textTrans
-    leftText.style.transform = `translateX(${-textTrans}px)`
-    rightText.style.transform = `translateX(${textTrans}px)`
+    textTrans = textTrans < 0 ? 0 : textTrans;
+    leftText.style.transform = `translateX(${-textTrans}px)`;
+    rightText.style.transform = `translateX(${textTrans}px)`;
 }
 
 
-// Text reveal
+
+/**
+ * TEXT REVEAL
+ */
 
 const textReveals = [...document.querySelectorAll('.text-reveal')];
 
-let callback = (entries => {
+let callback = (entries) => {
     entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
             console.log(entry);
             [...entry.target.querySelectorAll('span')].forEach((span, idx) => {
                 setTimeout(() => {
                     span.style.transform = `translateY(0)`;
-                }, (idx+1) * 50)
-            })
+                }, (idx + 1) * 50);
+            });
         }
-    })
-})
+    });
+};
 
 let options = {
     rootMargin: '0px',
     threshold: 1.0
-}
+};
 
 let observer = new IntersectionObserver(callback, options);
 
 textReveals.forEach(text => {
     let string = text.innerText;
     let html = '';
-    for(let i = 0; i < string.length; i++){
+    for (let i = 0; i < string.length; i++) {
         html += `<span>${string[i]}</span>`;
     }
-    text.innerHTML = html
+    text.innerHTML = html;
     observer.observe(text);
-})
+});
 
-
-function animate(){
+function animate() {
     animateProjects();
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
 }
 
 main.addEventListener('scroll', () => {
     scrollBlogPosts();
     scrollCircle();
-    scrollDiscover()
-})
+    scrollDiscover();
+});
 
-animate()
-
-
+animate();
 
 
-// Header animation        
 
+/**
+ * HEADER
+ */
 
 document.addEventListener("DOMContentLoaded", function(){
     let tl = gsap.timeline({paused: true});
@@ -226,31 +248,40 @@ document.addEventListener("DOMContentLoaded", function(){
        
         tl.reverse ();
         document.querySelector(".menu-overlay").style.visibility = "hidden";
-        
-        
-        
-        
     }
-    
-
-
-
-    
-
-
     
     document.querySelector(".menu-open-btn").addEventListener("click", openMenu);
     document.querySelector(".menu-close-btn").addEventListener("click", closeMenu);
     document.querySelectorAll(".menu-link").forEach(function(link) {
         link.addEventListener("click", closeMenu);
     });
-    
-    
 });
 
+function updateLiveTime() {
+    const now = new Date();
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    };
+    const formattedTime = now.toLocaleString('en-US', options);
+    document.getElementById('liveTime').textContent = formattedTime;
+  }
 
-//cursor
+  // Update time every second
+  setInterval(updateLiveTime, 1000);
 
+  // Initial call to display time
+  updateLiveTime();
+
+
+
+/**
+ * CURSOR
+ */
 
 const cursorDot = document.querySelector("[data-cursor-dot]");
 const cursorOutline = document.querySelector("[data-cursor-outline]");
@@ -262,9 +293,6 @@ window.addEventListener("mousemove", function(e){
 
     cursorDot.style.left =`${posX}px`;
     cursorDot.style.top =`${posY}px`;
-
-    // cursorOutline.style.left =`${posX}px`;
-    // cursorOutline.style.top =`${posY}px`;
 
     cursorOutline.animate({
         left: `${posX}px`,
@@ -293,29 +321,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
   });
-  
-  function updateLiveTime() {
-    const now = new Date();
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    };
-    const formattedTime = now.toLocaleString('en-US', options);
-    document.getElementById('liveTime').textContent = formattedTime;
-  }
-
-  // Update time every second
-  setInterval(updateLiveTime, 1000);
-
-  // Initial call to display time
-  updateLiveTime();
-
-
-  
-
-
-

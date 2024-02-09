@@ -614,6 +614,13 @@ p {
   #MEDIA-QUERIES
 \*-----------------------------------*/
 
+@media only screen and (pointer: coarse) {
+
+    .preview-img {
+        display: none;
+    }
+  }
+
 @media only screen and (max-aspect-ratio: 0.632) {
     .slogan {
         margin-top: 0px;
@@ -676,6 +683,7 @@ p {
         display: block;
     }
 }
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-aspect-ratio: 16/9) {}
