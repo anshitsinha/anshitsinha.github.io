@@ -19,7 +19,7 @@ main.addEventListener('scroll', () => {
 
 
 /**
- * SHOWCASE VIDEO
+ * PROJECTS VIDEO
  */
 
 const headerLeft = document.querySelector('.text-header-left');
